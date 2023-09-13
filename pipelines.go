@@ -12,16 +12,16 @@ type Pipeline struct {
 	Jobs []Job
 }
 
-// CalculatePipelineDuration accepts Pipeline object and returns it's duration
-// Pipeline's - sum of all it's jobs durations
-func CalculatePipelineDuration(pipeline Pipeline) int {
-
-	return 0
-}
-
 // ShortestPassedJob accepts list of Pipelines objects and returns the Job with the lowest Duration
 // between Job's which status is "passed"
 func ShortestPassedJob(pipelines []Pipeline) Job {
 
 	return Job{}
+}
+
+// CalculatePipelineDuration accepts Pipeline object and returns it's duration
+// Pipeline's - sum of all it's jobs durations
+func CalculatePipelineDuration(pipeline Pipeline) int {
+
+	return 0
 }

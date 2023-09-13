@@ -1,0 +1,50 @@
+image: runner:0.0.1
+
+stages:
+  - test
+  - build
+  - publish
+
+Test Webinars:
+  stage: test
+  script: |
+    # code
+    # more code
+    # even more code
+    cd webinars-test-dir
+    test-runner exec tests \
+      --parallel=10 \
+      --report-bucket="https://rcv-reports.s3.amazonaws.com/webinars"
+
+Test Rooms:
+  stage: test
+  script: |
+    # code
+    # more code
+    # even more code
+    cd rooms-test-dir
+    test-runner exec tests \
+      --parallel=2 \
+      --report-bucket="https://rcv-reports.s3.amazonaws.com/rooms"
+
+Test Web:
+  stage: test
+  script: |
+    # code
+    # more code
+    # even more code
+    cd web-test-dir
+    test-runner exec tests \
+      --parallel=2 \
+      --report-bucket="https://rcv-reports.s3.amazonaws.com/web"
+
+Build:
+  stage: build
+  script:
+    - builder fetch-dependencies
+    - builder build
+
+Publish:
+  stage: publish
+  script:
+    - publisher publish
